@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "iPr7kRZcruuc7tgiqXTt+2BAwXslYAFFBKnMdWsyiCg=",
+  "Source": "MovliAPI",
+  "BasePath": "_content/MovliAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

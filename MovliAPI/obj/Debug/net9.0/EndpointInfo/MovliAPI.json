@@ -1,0 +1,392 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "Stream Deck API",
+    "description": "API para gestionar botones y asistente de voz.",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Botones": {
+      "post": {
+        "tags": [
+          "Botones"
+        ],
+        "summary": "Crea un nuevo botón",
+        "description": "Crea un nuevo botón con un nombre y una función opcional",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearBotonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearBotonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearBotonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Botones/{id}": {
+      "put": {
+        "tags": [
+          "Botones"
+        ],
+        "summary": "Actualiza un botón",
+        "description": "Actualiza el nombre y función de un botón existente utilizando su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarBotonDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarBotonDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarBotonDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Funciones": {
+      "post": {
+        "tags": [
+          "Funciones"
+        ],
+        "summary": "Crea una nueva funcion",
+        "description": "Crea una nueva funcion con una accion y una descripción opcional",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearFuncionDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearFuncionDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CrearFuncionDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Funciones"
+        ],
+        "summary": "Obtiene todas las funciones",
+        "description": "Obtiene todas las funciones almacenadas en la base de datos",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Funcion"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Funcion"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Funcion"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Funciones/{id}": {
+      "get": {
+        "tags": [
+          "Funciones"
+        ],
+        "summary": "Obtiene una función por su ID",
+        "description": "Obtiene una función específica utilizando su ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Funcion"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Funcion"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Funcion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Funciones/abrirenlace/{nombreBoton}": {
+      "get": {
+        "tags": [
+          "Funciones"
+        ],
+        "summary": "Ejecuta la acción asociada a un botón",
+        "description": "Ejecuta la acción configurada en la tabla de funciones para el botón especificado.",
+        "parameters": [
+          {
+            "name": "nombreBoton",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Funciones/abrir/{nombreBoton}": {
+      "get": {
+        "tags": [
+          "Funciones"
+        ],
+        "summary": "Abre la aplicacion asociada a un boton",
+        "description": "Ejecuta la acción configurada en la tabla de funciones para el botón especificado.",
+        "parameters": [
+          {
+            "name": "nombreBoton",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Funciones/enlace/{nombreFuncion}": {
+      "get": {
+        "tags": [
+          "Funciones"
+        ],
+        "summary": "Devuelve un enlace para la función",
+        "description": "Devuelve un enlace basado en la acción de la función, para generar un QR.",
+        "parameters": [
+          {
+            "name": "nombreFuncion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActualizarBotonDTO": {
+        "required": [
+          "nombre"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Nombre actualizado del botón"
+          },
+          "funcion": {
+            "type": "string",
+            "description": "Función actualizada del botón",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CrearBotonDTO": {
+        "required": [
+          "nombre"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Nombre del botón"
+          },
+          "funcion": {
+            "type": "string",
+            "description": "Función del botón",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CrearFuncionDTO": {
+        "required": [
+          "accion",
+          "nombre"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Nombre de la función"
+          },
+          "accion": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Acción de la función"
+          },
+          "descripcion": {
+            "type": "string",
+            "description": "Descripción de la función",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Funcion": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "ID único de la función (se genera automáticamente)",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "description": "Nombre de la función",
+            "nullable": true
+          },
+          "accion": {
+            "type": "string",
+            "description": "Acción de la función",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "description": "Descripción de la función",
+            "nullable": true
+          },
+          "fechaCreacion": {
+            "type": "string",
+            "description": "Fecha de Creación de la función (se genera automáticamente)",
+            "format": "date-time"
+          },
+          "fechaModificacion": {
+            "type": "string",
+            "description": "Fecha de Modificación de la función (se genera automáticamente)",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

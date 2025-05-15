@@ -1,0 +1,159 @@
+[
+  {
+    "ContainingType": "MovliAPI.Controllers.BotonesController",
+    "Method": "CrearBoton",
+    "RelativePath": "api/Botones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "botonDTO",
+        "Type": "MovliAPI.DTOs.CrearBotonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.BotonesController",
+    "Method": "ActualizarBoton",
+    "RelativePath": "api/Botones/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "actualizarBotonDTO",
+        "Type": "MovliAPI.DTOs.ActualizarBotonDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.FuncionesController",
+    "Method": "CrearFuncuion",
+    "RelativePath": "api/Funciones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "funcionDTO",
+        "Type": "MovliAPI.DTOs.CrearFuncionDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.FuncionesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Funciones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MovliAPI.Models.Funcion, MovliAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.FuncionesController",
+    "Method": "GetById",
+    "RelativePath": "api/Funciones/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MovliAPI.Models.Funcion",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.FuncionesController",
+    "Method": "EjecutarAccionDeBotonAbrirApp",
+    "RelativePath": "api/Funciones/abrir/{nombreBoton}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreBoton",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.FuncionesController",
+    "Method": "EjecutarAccionDeBotonAbrirEnlace",
+    "RelativePath": "api/Funciones/abrirenlace/{nombreBoton}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreBoton",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MovliAPI.Controllers.FuncionesController",
+    "Method": "ObtenerEnlaceParaQR",
+    "RelativePath": "api/Funciones/enlace/{nombreFuncion}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreFuncion",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
