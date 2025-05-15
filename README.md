@@ -110,8 +110,6 @@ Este proyecto está licenciado bajo la **MIT License**. Consulta el archivo `LIC
 ---
 ---
 
-**README in ENGLISH**
-
 # StreamDeck Project
 
 This project consists of two main components: **MovliAPI**, a RESTful API developed in .NET 9, and **StreamDeck**, a mobile application built with React Native. Together, these tools allow users to manage buttons and functions, execute associated actions, and generate QR codes for dynamic integrations.
